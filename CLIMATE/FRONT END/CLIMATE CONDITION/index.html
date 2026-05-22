@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Condition</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="climate-condition">
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="../Edited images/goal 13.jpg" alt="Climate logo">
+        <span>Climate Condition</span>
+      </div>
+      <ul id="navLinks">
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../CLIMATE CONDITION/index.html" class="active">Climate Condition</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../SDGs/FRONT END/HOME/index.html">Switch to SDGs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="controls">
+    <input id="placeSearch" type="text" placeholder="Search place (for example Lagos, Paris, Nairobi)">
+    <button id="searchBtn" class="btn">Search</button>
+    <button id="locBtn" class="btn">My Location</button>
+    <button id="refreshBtn" class="btn ghost">Refresh</button>
+    <button id="printBtn" class="btn">Print Snapshot</button>
+    <div id="alertsBox" class="alerts hidden"></div>
+  </section>
+
+  <div id="map"></div>
+
+  <section class="panel">
+    <div class="card">
+      <h3 id="placeTitle">Location: -</h3>
+      <p>Coordinates: <span id="coords">-</span></p>
+      <p id="temp">Temperature: -</p>
+      <p id="weatherDesc">-</p>
+      <p id="humidity">Humidity: -</p>
+      <p id="pressure">Pressure: -</p>
+      <p id="wind">Wind: -</p>
+      <p id="uv">UV Index: -</p>
+      <p id="sunrise">Sunrise: -</p>
+      <p id="sunset">Sunset: -</p>
+    </div>
+
+    <div class="card">
+      <h3>Air Quality</h3>
+      <p>US AQI: <strong id="usAqi">-</strong></p>
+      <p>EU AQI: <strong id="euAqi">-</strong></p>
+      <p>PM2.5: <span id="pm25">-</span></p>
+      <p>PM10: <span id="pm10">-</span></p>
+      <p>NO2: <span id="no2">-</span></p>
+    </div>
+
+    <div class="card">
+      <h3>Greenhouse Gases</h3>
+      <p>CO2: <span id="co2">-</span></p>
+      <p>CH4: <span id="ch4">-</span></p>
+    </div>
+
+    <div class="card forecast-card">
+      <h3>5-Day Forecast</h3>
+      <div id="forecastRow" class="forecast-row"></div>
+    </div>
+  </section>
+
+  <section class="card chart-card">
+    <h3>7-Day Temperature & Rain Forecast</h3>
+    <canvas id="forecastChart" height="100"></canvas>
+  </section>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Climate Action Hub | Live climate condition tools.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

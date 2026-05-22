@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Hub | Home</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="../Edited images/gem.jpg" alt="SDG Hub logo">
+        <span>SDG Hub</span>
+      </div>
+      <ul id="navLinks">
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../home/index.html" class="active">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      SDG Hub public home: explore the 17 goals here, then login or sign up to unlock learn, quiz, challenge, puzzle, leaderboard, updates, and Ask Bot.
+    </marquee>
+  </div>
+
+  <main class="home-main">
+    <section class="hero-panel home-hero">
+      <div class="hero-copy">
+        <p class="eyebrow" id="goalEyebrow">Goal 1</p>
+        <h1 id="welcomeMessage" class="section-title">Welcome to the SDG Hub</h1>
+        <p id="goalMessage" class="section-copy">
+          The home page stays open for everyone. Every student tool unlocks after login or signup, so usernames, progress, and challenges stay personal.
+        </p>
+        <div class="hero-actions">
+          <a class="sdg-button restricted-action" href="../learn/index.html">Start Learning</a>
+          <a class="sdg-chip restricted-action" href="../leaderboard/index.html">View Leaderboard</a>
+          <a class="sdg-chip" href="../login/index.html">Login / Sign Up</a>
+        </div>
+      </div>
+      <div class="hero-orbit">
+        <img id="goalWheel" src="../Edited images/goal 1.jpg" alt="Rotating SDG goal">
+      </div>
+    </section>
+
+    <section class="section-panel dashboard-grid">
+      <article class="profile-card">
+        <div class="profile-top">
+          <img id="avatarPreview" class="avatar-preview" src="../Edited images/gem.jpg" alt="Student avatar">
+          <div>
+            <p class="eyebrow">Profile</p>
+            <h2 id="profileName">Guest mode</h2>
+            <p id="profileHint" class="section-copy">Add a small avatar after login so your account stands out on the leaderboard and home page.</p>
+          </div>
+        </div>
+        <label for="avatarInput">Add picture or avatar</label>
+        <input id="avatarInput" type="file" accept="image/*">
+        <p class="helper-text">Locked until login. Your avatar is saved only on this device for now.</p>
+      </article>
+
+      <article class="notification-card">
+        <div class="notification-header">
+          <div>
+            <p class="eyebrow">Notification Center</p>
+            <h2>Challenges, teams, and updates</h2>
+          </div>
+          <span id="notificationCount" class="notification-badge">0</span>
+        </div>
+        <div id="notificationList" class="notification-list"></div>
+      </article>
+
+      <article class="stats-card">
+        <p class="eyebrow">Platform Snapshot</p>
+        <div class="stat-grid compact-grid">
+          <div class="stat-card"><strong>17</strong><span>SDG goals</span></div>
+          <div class="stat-card"><strong id="memberCount">0</strong><span>Student profiles</span></div>
+          <div class="stat-card"><strong id="teamCount">0</strong><span>Teams created</span></div>
+          <div class="stat-card"><strong id="challengeCount">0</strong><span>Pending invites</span></div>
+        </div>
+        <div class="update-ideas">
+          <h3>Ideas added for later</h3>
+          <ul>
+            <li>Daily streaks so students stay active.</li>
+            <li>Teacher announcement pinning in the notification center.</li>
+            <li>Goal-based mini rewards when a student completes Learn, Quiz, and Puzzle in one week.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section class="section-panel feature-grid">
+      <article class="feature-card">
+        <img src="../Edited images/goal 4.jpg" alt="Quality Education">
+        <h2>Learn in stages</h2>
+        <p>Move through four locked stages, spending at least 1 minute 30 seconds in each before the next stage opens.</p>
+      </article>
+      <article class="feature-card">
+        <img src="../Edited images/goal 8.jpg" alt="Decent Work and Economic Growth">
+        <h2>Challenge friends</h2>
+        <p>Pick difficulty, question count, and time pressure. Then send a direct challenge or invite people into a team.</p>
+      </article>
+      <article class="feature-card">
+        <img src="../Edited images/goal 17.jpg" alt="Partnerships for the Goals">
+        <h2>Track progress</h2>
+        <p>See medals on the leaderboard, keep your own avatar, and review challenge or team invitations from the home screen.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SDG Advocacy Platform | Public home, locked student tools, and SDG-themed learning.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

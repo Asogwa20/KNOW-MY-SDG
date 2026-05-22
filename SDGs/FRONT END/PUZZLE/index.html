@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Puzzle Game</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="puzzle">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html" class="active">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container puzzle-layout">
+    <section id="levels" class="puzzle-panel">
+      <p class="eyebrow">Memory and matching</p>
+      <h2>Choose Level</h2>
+      <button class="levelBtn" data-level="1" type="button">Level 1: Match names and logos</button>
+      <button class="levelBtn locked" data-level="2" type="button" disabled>Level 2: Sort goals by SDG theme</button>
+      <p class="section-copy">Score at least 16 marks in Level 1 to unlock Level 2. Each correct logo is half mark and each correct name is half mark.</p>
+    </section>
+
+    <section id="game" class="hidden puzzle-panel">
+      <div id="level1">
+        <h2>Level 1: Match the board</h2>
+        <div class="puzzle-columns">
+          <div>
+            <h3>Goal Names</h3>
+            <div class="pieces names-side" id="namePieces"></div>
+          </div>
+          <div>
+            <h3>Board</h3>
+            <div class="puzzle-board" id="puzzleBoard"></div>
+          </div>
+          <div>
+            <h3>Goal Logos</h3>
+            <div class="pieces logos-side" id="logoPieces"></div>
+          </div>
+        </div>
+        <button id="finishLevel1" class="btn" type="button">Finish Level 1</button>
+      </div>
+
+      <div id="level2" class="hidden">
+        <h2>Level 2: Sort each goal into the right SDG theme</h2>
+        <p class="section-copy">This is the next-level idea: move each goal into the correct UN SDG category group.</p>
+        <div id="themeBins" class="theme-bins"></div>
+        <div id="themePieces" class="pieces"></div>
+        <button id="finishLevel2" class="btn" type="button">Finish Level 2</button>
+      </div>
+    </section>
+  </main>
+
+  <div id="scoreModal" class="popup">
+    <div class="popup-content">
+      <h2>Level Result</h2>
+      <p id="scoreText"></p>
+      <button id="closeScoreModal" type="button">Close</button>
+    </div>
+  </div>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

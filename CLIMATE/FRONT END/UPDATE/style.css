@@ -1,0 +1,28 @@
+.update-contact {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.2rem;
+}
+
+.updates,
+.contact {
+  padding: 1.5rem;
+}
+
+.update-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.update-card {
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+@media (max-width: 900px) {
+  .update-contact {
+    grid-template-columns: 1fr;
+  }
+}

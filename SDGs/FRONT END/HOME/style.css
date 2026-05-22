@@ -1,0 +1,210 @@
+.home-main {
+  display: grid;
+  gap: 1.2rem;
+}
+
+body {
+  transition: background 1s ease;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(140deg, rgba(var(--goal-rgb, 229, 36, 59), 0.2), transparent 40%),
+    radial-gradient(circle at 82% 18%, rgba(255, 255, 255, 0.18), transparent 24%),
+    radial-gradient(circle at 14% 80%, rgba(var(--goal-rgb, 229, 36, 59), 0.18), transparent 25%);
+  z-index: -1;
+}
+
+.section-panel {
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.76)),
+    linear-gradient(120deg, rgba(var(--goal-rgb, 229, 36, 59), 0.08), rgba(38, 189, 226, 0.08));
+  transition: background 1s ease;
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding: 1.8rem;
+  background:
+    radial-gradient(circle at top left, rgba(var(--goal-rgb, 229, 36, 59), 0.28), transparent 24%),
+    linear-gradient(145deg, rgba(255, 255, 255, 0.96), rgba(246, 251, 255, 0.84));
+}
+
+.hero-actions {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1.2rem;
+}
+
+.hero-orbit {
+  display: grid;
+  place-items: center;
+  min-height: 290px;
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at center, rgba(var(--goal-rgb, 229, 36, 59), 0.3), transparent 42%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(var(--goal-rgb, 229, 36, 59), 0.12));
+}
+
+.hero-orbit img {
+  width: min(250px, 100%);
+  border-radius: 24px;
+  animation: drift 6s ease-in-out infinite;
+  box-shadow: 0 22px 50px rgba(13, 29, 41, 0.16);
+}
+
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 0.95fr 1.2fr 0.9fr;
+  gap: 1rem;
+  padding: 1.4rem;
+}
+
+.profile-card,
+.notification-card,
+.stats-card,
+.feature-card {
+  padding: 1.3rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+.profile-top,
+.notification-header {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.avatar-preview {
+  width: 78px;
+  height: 78px;
+  object-fit: cover;
+  border-radius: 24px;
+  border: 3px solid rgba(var(--goal-rgb, 229, 36, 59), 0.35);
+  box-shadow: 0 10px 24px rgba(13, 29, 41, 0.16);
+}
+
+.helper-text {
+  margin: 0.65rem 0 0;
+  color: #667a88;
+  font-size: 0.92rem;
+}
+
+.notification-card {
+  min-height: 100%;
+}
+
+.notification-badge {
+  min-width: 42px;
+  height: 42px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 999px;
+  font-weight: 800;
+  background: linear-gradient(135deg, rgba(var(--goal-rgb, 229, 36, 59), 0.94), #19486a);
+  color: #fff;
+}
+
+.notification-list {
+  display: grid;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.notification-item {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(248, 251, 246, 0.92);
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+.notification-item h3,
+.notification-item p {
+  margin: 0 0 0.35rem;
+}
+
+.notification-meta {
+  color: #667a88;
+  font-size: 0.9rem;
+}
+
+.notification-actions {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.8rem;
+}
+
+.empty-notice {
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px dashed rgba(13, 29, 41, 0.15);
+  color: #667a88;
+}
+
+.compact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.update-ideas h3 {
+  margin: 1rem 0 0.6rem;
+}
+
+.update-ideas ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding: 1.4rem;
+}
+
+.feature-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 18px;
+  border: 3px solid rgba(255, 255, 255, 0.72);
+  box-shadow: 0 10px 22px rgba(13, 29, 41, 0.12);
+}
+
+.feature-card h2 {
+  margin-bottom: 0.45rem;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #304657;
+}
+
+@keyframes drift {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (max-width: 980px) {
+  .home-hero,
+  .dashboard-grid,
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+}

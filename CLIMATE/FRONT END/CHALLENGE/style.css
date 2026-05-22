@@ -1,0 +1,37 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.3rem;
+  font-weight: 700;
+  color: #0e9f8a;
+}
+
+#options {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 1.2rem;
+}
+
+#options button {
+  width: 100%;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.92);
+  color: #0d1d29;
+  border: 1px solid rgba(13, 29, 41, 0.1);
+}
+
+#options button.correct {
+  background: #d7f6dc;
+}
+
+#options button.wrong {
+  background: #ffd7dd;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}

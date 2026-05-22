@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Quiz</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="quiz">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../CLIMATE CONDITION/index.html">Climate Condition</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html" class="active">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../SDGs/FRONT END/HOME/index.html">Switch to SDGs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="quiz-container">
+    <p class="eyebrow">Climate knowledge check</p>
+    <h1>Climate Quiz</h1>
+    <p class="quiz-subtitle">Choose a quiz length, answer carefully, and grow your climate score.</p>
+
+    <div class="quiz-controls">
+      <label for="questionCount">Select number of questions</label>
+      <select id="questionCount">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+        <option value="20">20</option>
+      </select>
+      <button id="startQuizBtn" type="button">Start Quiz</button>
+    </div>
+
+    <div id="quizBox" class="hidden">
+      <p id="questionNumber"></p>
+      <h2 id="questionText"></h2>
+      <div id="options"></div>
+      <button id="nextBtn" type="button" disabled>Next</button>
+    </div>
+
+    <div id="resultBox" class="hidden">
+      <h2>Quiz Completed</h2>
+      <p id="score"></p>
+      <div class="result-actions">
+        <button id="restartQuizBtn" type="button">Take Again</button>
+        <a class="climate-chip" href="../leaderboard/index.html">See Leaderboard</a>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Climate Action Hub | Quiz your climate knowledge.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

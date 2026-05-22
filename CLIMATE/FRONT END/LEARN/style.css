@@ -1,0 +1,364 @@
+/* ===========================
+   Climate Color System (6)
+   =========================== */
+:root{
+  --forest:#2e7d32;   /* deep green */
+  --ocean:#0277bd;    /* blue */
+  --sun:#fbc02d;      /* solar yellow */
+  --earth:#6d4c41;    /* earthy brown */
+  --sky:#e1f5fe;      /* pale sky */
+  --teal:#00897b;     /* ocean teal */
+
+  /* gradients */
+  --grad: linear-gradient(135deg, var(--ocean), var(--teal));
+}
+/* ===== Header & Nav ===== */
+header {
+  background: #19486A; color: #fff; padding: 10px 20px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+header .logo img { width: 50px; height: auto; }
+nav ul { list-style: none; display: flex; gap: 15px; flex-wrap: wrap; }
+nav a { color: #fff; text-decoration: none; font-weight: 700; }
+nav a.active { color: #FCC30B; }
+/* ===========================
+   Base & Background
+   =========================== */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:"Open Sans",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:#1f1f1f;
+  background:
+    radial-gradient(ellipse at center, rgba(255,255,255,.85), rgba(255,255,255,.9)),
+    url("../assets/climate-logo.png") no-repeat center 120px / 160px,
+    var(--sky);
+}
+
+/* ===========================
+   Header / Nav
+   =========================== */
+.site-header{
+  position:sticky; top:0; z-index:30;
+  background: var(--grad);
+  color:#fff;
+  border-bottom:4px solid var(--sun);
+}
+.brand{
+  display:flex; align-items:center; gap:.75rem;
+  padding: .75rem 1rem;
+}
+.brand__logo{width:52px; height:52px; animation:spin 16s linear infinite}
+.brand__title{font-family:"Montserrat",sans-serif; font-size:1.35rem; letter-spacing:.3px}
+
+.topnav{background:rgba(255,255,255,.06); backdrop-filter: blur(6px)}
+.menu{display:flex; flex-wrap:wrap; gap:.25rem; list-style:none; margin:0; padding:.5rem 1rem}
+.menu a, .menu__trigger{
+  font-family:"Orbitron", monospace;
+  text-decoration:none; color:#fff; padding:.5rem .75rem; border-radius:8px;
+  transition: background .2s ease, transform .15s ease;
+}
+.menu a:hover, .menu__trigger:hover{ background: rgba(255,255,255,.15); transform: translateY(-1px) }
+
+.menu__item--has-children{ position:relative }
+.menu__trigger{
+  background:transparent; border:0; cursor:pointer;
+}
+.submenu{
+  position:absolute; left:0; top:100%; min-width: 260px;
+  background:#ffffff; color:#1f1f1f; border-radius:10px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.12);
+  list-style:none; margin: .25rem 0 0; padding:.25rem; display:none;
+}
+.submenu a{
+  color:#1f1f1f; display:block; padding:.6rem .75rem; border-radius:8px; font-family:"Quicksand",sans-serif;
+}
+.submenu a:hover{ background:#f2fbff }
+
+/* Auto open on hover with pointer devices */
+.menu__item--has-children:hover .submenu{ display:block }
+
+/* Open class used for touch */
+.menu__item--has-children.open .submenu{ display:block }
+
+/* Marquee */
+.marquee{
+  background:#fff; color:#143646; padding:.3rem .75rem; font-weight:700; border-top:2px dashed var(--sun);
+}
+
+/* ===========================
+   Stage Toolbar (timer)
+   =========================== */
+.stage-toolbar{
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+  padding: .85rem 1rem; background:#fff; border-bottom:1px solid #e6eef2;
+}
+.stage-indicator{
+  font-family:"Montserrat",sans-serif; color: var(--forest);
+}
+.countdown{ display:flex; align-items:center; gap:.7rem }
+.ring{
+  --size:52px;
+  width:var(--size); height:var(--size);
+  border-radius:50%;
+  background:
+    conic-gradient(var(--ocean) 0deg, var(--sun) 0deg 0deg, #e8eef2 0deg);
+  display:grid; place-items:center;
+  box-shadow: inset 0 0 0 6px #fff, 0 2px 12px rgba(0,0,0,.08);
+}
+.time{ display:flex; flex-direction:column; line-height:1; align-items:flex-start }
+#timer{ font-weight:800; font-feature-settings:"tnum"; font-size:1.1rem }
+small{ color:#546e7a }
+
+.toolbar-actions .btn{ margin-left:.4rem }
+
+/* Buttons */
+.btn{
+  font-family:"Quicksand",sans-serif; font-weight:600;
+  border:0; border-radius:999px; padding:.6rem 1rem; cursor:pointer;
+  background: var(--ocean); color:#fff; box-shadow:0 6px 16px rgba(2,119,189,.25);
+  transition: transform .12s ease, filter .12s ease, background .2s ease;
+}
+.btn:hover{ transform: translateY(-1px); filter: brightness(1.05) }
+.btn:disabled{ opacity:.45; cursor:not-allowed; filter:grayscale(.2) }
+.btn.secondary{ background: var(--forest) }
+.btn.ghost{ background:#ffffff; color:#143646; border:2px solid #d7e7ef }
+
+/* ===========================
+   Layout & Cards
+   =========================== */
+.content{ max-width:1100px; margin: 1rem auto 3rem; padding: 0 1rem }
+
+.stage{ display:none; animation: fadeIn .4s ease both }
+.stage.active{ display:block }
+.stage__title{
+  font-family:"Pacifico", cursive; color:#0b5c6a; margin: .75rem 0 1rem;
+  text-shadow: 0 2px 0 rgba(251,192,45,.25);
+}
+
+.card{
+  background:#fff; border-radius:16px; padding:1rem 1.1rem; margin:1rem 0;
+  box-shadow: 0 10px 30px rgba(0,0,0,.06);
+}
+.card__title{
+  margin:.2rem 0 .75rem; font-family:"Montserrat",sans-serif; color:#0d5a2c;
+}
+
+.longread p{ line-height:1.7 }
+
+/* Bullets in two columns (auto) */
+.bullet-columns{
+  columns: 2 280px; column-gap: 1.25rem; padding-left:1rem;
+}
+.bullet-columns li{ break-inside: avoid; margin: .4rem 0; }
+
+/* Goals grid */
+.goals-grid{
+  display:grid; grid-template-columns: repeat(auto-fill, minmax(140px,1fr)); gap: .75rem;
+}
+.goal{
+  background: #f6fbff; border: 2px solid #e5f3fb; border-radius: 14px; padding:.75rem;
+  display:flex; align-items:center; gap:.6rem; cursor:pointer; transition: transform .12s ease, box-shadow .2s ease;
+}
+.goal:hover{ transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,.08) }
+.goal__icon{
+  width:42px; height:42px; border-radius:12px; display:grid; place-items:center; color:#fff; font-weight:800;
+}
+
+/* Goal detail */
+#goalDetail .chips{ display:flex; flex-wrap:wrap; gap:.4rem; margin:.6rem 0 0 }
+.chip{
+  background:#eef8f2; border:1px solid #d8f0df; color:#114b1c; padding:.25rem .6rem; border-radius:999px; font-size:.85rem;
+}
+.tight-list{ margin:.6rem 0 0; padding-left:1.15rem }
+.tight-list li{ margin:.25rem 0 }
+
+/* Causes table */
+.table-wrap{ overflow:auto }
+.causes{
+  width:100%; border-collapse: collapse; font-size:.95rem;
+}
+.causes th, .causes td{ border:1px solid #e7eef2; padding:.6rem .5rem; vertical-align:top }
+.causes thead th{
+  background: #f1fbff; color:#0d3a4a;
+}
+
+/* Drawer */
+.drawer{ border-top:1px dashed #d9e6eb; margin-top:.75rem; padding-top:.75rem }
+
+/* Footer */
+.site-footer{
+  text-align:center; padding: 2rem 1rem; color:#224955;
+}
+
+/* ===========================
+   Animations
+   =========================== */
+@keyframes spin{ from{transform:rotate(0)} to{transform:rotate(360deg)} }
+@keyframes fadeIn{ from{opacity:0; transform: translateY(6px)} to{opacity:1; transform:none} }
+
+/* ===========================
+   Responsive
+   =========================== */
+@media (max-width: 900px){
+  .brand__title{ font-size:1.1rem }
+}
+@media (max-width: 700px){
+  .menu{ gap:0 }
+  .menu a, .menu__trigger{ padding:.45rem .55rem; font-size:.9rem }
+  .ring{ --size:46px }
+  .bullet-columns{ columns: 1 }
+}
+/* ==== Stage Cards (Learn) ==== */
+.stage {
+  margin: 2rem auto;
+  max-width: 800px;
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  border-left: 8px solid var(--forest);
+  box-shadow: 0 3px 12px rgba(0,0,0,.1);
+}
+.stage__title { color: var(--forest); }
+
+/* ==== Notifications (Challenge) ==== */
+#notifBell {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+}
+#notifBell.red { color: red; }
+#notifBell.white { color: white; }
+#notifPanel {
+  position: fixed; top: 60px; right: 20px;
+  width: 350px; background: #fff;
+  border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,.2);
+  display: none; padding: 1rem;
+}
+#notifPanel.show { display: block; }
+#notifPanel h4 { margin: .5rem 0; color: var(--forest); }
+/* Reuse from Home */
+:root {
+  --green: #2e7d32;
+  --blue: #0277bd;
+  --yellow: #fbc02d;
+  --teal: #00897b;
+  --brown: #6d4c41;
+  --sky: #e1f5fe;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.32), transparent 28%),
+    linear-gradient(135deg, #e8f6fb, #d8f0e3, #f2fbff);
+  color: #222;
+  min-height: 100vh;
+}
+
+/* Navbar */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--green);
+  color: white;
+  padding: 10px 20px;
+}
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+}
+nav ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+}
+nav ul li a.active {
+  background: var(--teal);
+  padding: 6px 12px;
+  border-radius: 5px;
+}
+
+/* Theme Toggle */
+#themeToggle {
+  background: var(--yellow);
+  border: none;
+  border-radius: 50%;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+/* Stage Cards */
+.stage {
+  padding: 20px;
+  background: white;
+  margin: 15px auto;
+  border-radius: 10px;
+  max-width: 800px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+.stage__title {
+  color: var(--green);
+}
+.card {
+  padding: 15px;
+  background: var(--sky);
+  margin: 10px 0;
+  border-radius: 8px;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 15px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.btn.secondary {
+  background: var(--blue);
+  color: white;
+}
+.btn.ghost {
+  background: transparent;
+  border: 2px solid var(--green);
+  color: var(--green);
+}
+
+/* Feedback */
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal.hidden { display: none; }
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  width: 300px;
+  text-align: center;
+}
+.feedback-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--blue);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  cursor: pointer;
+  font-size: 18px;
+}

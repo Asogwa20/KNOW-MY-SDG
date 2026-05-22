@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Puzzle</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="puzzle">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../CLIMATE CONDITION/index.html">Climate Condition</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html" class="active">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../SDGs/FRONT END/HOME/index.html">Switch to SDGs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="puzzle-panel">
+      <p class="eyebrow">Word scramble</p>
+      <h1>Climate Puzzle</h1>
+      <p class="section-copy">Pick how many climate words you want to scramble through. You get a single timer for the full set.</p>
+      <div class="count-buttons">
+        <button class="startPuzzle" data-count="5" type="button">5</button>
+        <button class="startPuzzle" data-count="7" type="button">7</button>
+        <button class="startPuzzle" data-count="10" type="button">10</button>
+        <button class="startPuzzle" data-count="12" type="button">12</button>
+        <button class="startPuzzle" data-count="15" type="button">15</button>
+      </div>
+    </section>
+
+    <section id="puzzleArea" class="puzzle-panel hidden">
+      <div class="puzzle-top">
+        <div>Time left: <b id="pTime">0</b>s</div>
+        <div>Score: <b id="pScore">0</b></div>
+      </div>
+      <div id="pContent" class="puzzle-content"></div>
+      <div class="puzzle-actions">
+        <button id="pNext" class="btn" type="button">Next</button>
+        <button id="pQuit" class="btn ghost" type="button">Quit</button>
+      </div>
+    </section>
+
+    <section id="pResult" class="puzzle-panel hidden">
+      <h2>Done</h2>
+      <p id="pResultText"></p>
+      <div class="puzzle-actions">
+        <button id="pRestart" class="btn" type="button">Play again</button>
+        <button id="pSave" class="btn" type="button">Save & Return</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Climate Action Hub | Climate puzzle challenge.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

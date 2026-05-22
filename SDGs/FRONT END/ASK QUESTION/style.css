@@ -1,0 +1,131 @@
+.ask-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 1.2rem;
+}
+
+.bot-panel,
+.sidebar {
+  padding: 1.5rem;
+}
+
+.user-info {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(13, 29, 41, 0.08);
+  color: #304657;
+}
+
+.chat-area {
+  min-height: 380px;
+  max-height: 520px;
+  overflow: auto;
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(38, 189, 226, 0.08));
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+.msg .bubble {
+  max-width: 85%;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+}
+
+.msg.user {
+  justify-items: end;
+}
+
+.msg.user .bubble {
+  background: #19486a;
+  color: #fff;
+}
+
+.msg.bot .bubble {
+  background: rgba(255, 255, 255, 0.95);
+  color: #0d1d29;
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+.meta {
+  margin-top: 0.25rem;
+  font-size: 0.84rem;
+  color: #667a88;
+}
+
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.controls {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.tips {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.quick {
+  font: inherit;
+}
+
+.side-card + .side-card {
+  margin-top: 1rem;
+}
+
+.side-card {
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+#backdrop,
+.backdrop {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  background: rgba(5, 18, 28, 0.56);
+  z-index: 40;
+}
+
+.backdrop.open {
+  display: flex;
+}
+
+.modal {
+  width: min(520px, 100%);
+  padding: 1.4rem;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  .ask-layout,
+  .input-row {
+    grid-template-columns: 1fr;
+  }
+}

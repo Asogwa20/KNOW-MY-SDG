@@ -1,0 +1,69 @@
+.leaderboard-container {
+  padding: 1.6rem;
+  background:
+    linear-gradient(160deg, rgba(229, 36, 59, 0.08), rgba(38, 189, 226, 0.08), rgba(76, 159, 56, 0.08)),
+    rgba(255, 255, 255, 0.82);
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 1.2rem 0;
+  flex-wrap: wrap;
+}
+
+.tab {
+  min-width: 120px;
+}
+
+#leaderboardEmpty {
+  margin: 1rem 0 0;
+  text-align: center;
+  color: #667a88;
+}
+
+.leader-avatar {
+  width: 42px;
+  height: 42px;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 2px solid rgba(13, 29, 41, 0.1);
+}
+
+.medal {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 84px;
+  padding: 0.35rem 0.7rem;
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.medal-gold {
+  background: #fcc30b;
+  color: #332400;
+}
+
+.medal-silver {
+  background: #c7ced8;
+  color: #243548;
+}
+
+.medal-bronze {
+  background: #c47a3e;
+  color: #fff7f1;
+}
+
+.rank-1 {
+  background: rgba(252, 195, 11, 0.14);
+}
+
+.rank-2 {
+  background: rgba(199, 206, 216, 0.2);
+}
+
+.rank-3 {
+  background: rgba(196, 122, 62, 0.16);
+}

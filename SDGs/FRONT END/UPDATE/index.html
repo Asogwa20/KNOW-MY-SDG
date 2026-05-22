@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Hub | Updates</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="update">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html" class="active">Updates</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="update-contact">
+    <section class="updates">
+      <p class="eyebrow">Platform news</p>
+      <h1>Updates and announcements</h1>
+      <div class="update-stack">
+        <article class="update-card">
+          <h3>Home dashboard is now personalized</h3>
+          <p>Students can now see friend challenges, team invites, and account notifications directly from the SDG home page.</p>
+          <small>April 2026</small>
+        </article>
+        <article class="update-card">
+          <h3>Learn path now uses locked stages</h3>
+          <p>The four-stage Learn section now unlocks in order and requires 1 minute 30 seconds in each stage before progressing.</p>
+          <small>April 2026</small>
+        </article>
+        <article class="update-card">
+          <h3>Challenge mode supports levels</h3>
+          <p>Easy, medium, and hard now have different total time limits based on the number of questions selected.</p>
+          <small>April 2026</small>
+        </article>
+        <article class="update-card">
+          <h3>Leaderboard polish</h3>
+          <p>Gold, silver, and bronze styling now highlights the top three students, and avatars appear on the board.</p>
+          <small>April 2026</small>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact">
+      <p class="eyebrow">Contact</p>
+      <h2>Send a message</h2>
+      <p class="section-copy">Use this form to share feedback, report issues, or suggest the next SDG feature.</p>
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+
+        <label for="subject">Subject</label>
+        <input type="text" id="subject" required>
+
+        <label for="message">Message</label>
+        <textarea id="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <p id="formMsg"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SDG Advocacy Platform | Announcements, fixes, and student feedback.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

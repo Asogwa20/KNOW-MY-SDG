@@ -1,0 +1,45 @@
+.ask-layout {
+  display: grid;
+}
+
+.chat-log {
+  min-height: 340px;
+  max-height: 460px;
+  overflow: auto;
+  display: grid;
+  gap: 0.8rem;
+  padding: 1rem;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+.msg .bubble {
+  max-width: 85%;
+  padding: 0.9rem 1rem;
+  border-radius: 18px;
+}
+
+.msg.user {
+  justify-items: end;
+}
+
+.msg.user .bubble {
+  background: #0a6fb6;
+  color: #fff;
+}
+
+.msg.bot .bubble {
+  background: rgba(224, 249, 243, 0.94);
+  color: #0d1d29;
+}
+
+.chat-box {
+  margin-top: 1rem;
+}
+
+.chat-actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Hub | Login</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="login">
+  <header class="site-header">
+    <div class="brand">
+      <img src="../Edited images/gem.jpg" alt="SDG Hub logo">
+      <h1>SDG Hub</h1>
+    </div>
+    <nav id="mainNav" class="topnav">
+      <ul class="menu">
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../login/index.html" class="active">Login</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="auth-container">
+    <div class="auth-intro">
+      <p class="eyebrow">Student access</p>
+      <h1>Login / Signup</h1>
+      <p>Create a personal SDG Hub account. Your username is unique and becomes the main name other students use to find you for leaderboards, challenges, and teams.</p>
+    </div>
+
+    <div class="auth-tabs">
+      <button id="loginTab" class="active" type="button">Login</button>
+      <button id="signupTab" type="button">Sign Up</button>
+    </div>
+
+    <form id="loginForm" class="auth-form">
+      <h2>Login to your account</h2>
+      <label for="loginEmail">Email</label>
+      <input type="email" id="loginEmail" placeholder="Enter your email" required>
+      <label for="loginPass">Password</label>
+      <input type="password" id="loginPass" placeholder="Enter your password" required>
+      <label class="inline-check"><input type="checkbox" id="showLoginPassword"> Show Password</label>
+      <button type="submit">Login</button>
+      <button id="forgotPasswordBtn" class="link-button" type="button">Forgotten password?</button>
+    </form>
+
+    <form id="signupForm" class="auth-form hidden">
+      <h2>Create a new student account</h2>
+      <label for="signupFirst">First Name</label>
+      <input type="text" id="signupFirst" required>
+      <label for="signupLast">Last Name</label>
+      <input type="text" id="signupLast" required>
+      <label for="signupEmail">Email</label>
+      <input type="email" id="signupEmail" required>
+      <label for="signupPhone">Phone Number</label>
+      <input type="tel" id="signupPhone" required>
+      <label for="signupCountry">Country</label>
+      <input type="text" id="signupCountry" required>
+      <label for="signupState">State/Region</label>
+      <input type="text" id="signupState" required>
+      <label for="signupGender">Gender</label>
+      <select id="signupGender" required>
+        <option value="">Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+      <label for="signupClass">Class</label>
+      <select id="signupClass" required>
+        <option value="">Select class</option>
+        <option>JSS 1</option>
+        <option>JSS 2</option>
+        <option>JSS 3</option>
+        <option>SS 1</option>
+        <option>SS 2</option>
+        <option>SS 3</option>
+        <option>TEACHER</option>
+        <option>EX Student</option>
+      </select>
+      <label for="signupUsername">Username</label>
+      <input type="text" id="signupUsername" placeholder="Choose a unique username" required>
+      <p id="usernameStatus" class="status-text">Pick a username that nobody else is using.</p>
+      <label for="signupPass1">Password</label>
+      <input type="password" id="signupPass1" placeholder="Create Password" required>
+      <div id="strengthBar"></div>
+      <p id="strengthLabel" class="status-text">Use at least 8 characters with a mix of letters, numbers, and symbols.</p>
+      <label for="signupPass2">Confirm Password</label>
+      <input type="password" id="signupPass2" placeholder="Confirm Password" required>
+      <label class="inline-check"><input type="checkbox" id="showSignupPassword"> Show Password</label>
+      <button type="submit">Sign Up</button>
+    </form>
+  </div>
+
+  <div id="forgotModal" class="popup">
+    <div class="popup-content">
+      <h2>Reset password</h2>
+      <form id="forgotForm" class="auth-form modal-form">
+        <label for="resetUsername">Username</label>
+        <input id="resetUsername" type="text" required>
+        <label for="resetEmail">Email</label>
+        <input id="resetEmail" type="email" required>
+        <label for="resetPassword">New Password</label>
+        <input id="resetPassword" type="password" required>
+        <label for="resetPasswordConfirm">Confirm New Password</label>
+        <input id="resetPasswordConfirm" type="password" required>
+        <div class="result-actions">
+          <button type="submit">Save new password</button>
+          <button id="closeForgotModal" type="button" class="sdg-chip">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SDG Advocacy Platform | Student accounts, usernames, and local progress.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

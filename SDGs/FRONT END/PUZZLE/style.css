@@ -1,0 +1,121 @@
+.puzzle-layout,
+.puzzle-panel {
+  padding: 1.5rem;
+}
+
+.puzzle-columns {
+  display: grid;
+  grid-template-columns: 0.9fr 1.2fr 0.9fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.puzzle-board {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.9rem;
+  margin: 1.2rem 0;
+}
+
+.slot {
+  padding: 0.8rem;
+  border-radius: 18px;
+  border: 1px dashed rgba(13, 29, 41, 0.22);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.slot-number {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0.7rem;
+  border-radius: 16px;
+  background: #19486a;
+  color: #fff;
+  font-weight: 800;
+}
+
+.slot-logo,
+.slot-name {
+  display: grid;
+  place-items: center;
+  min-height: 80px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  text-align: center;
+}
+
+.slot-name.matched,
+.slot-logo.matched {
+  border: 2px solid #2d8b73;
+  background: #d7f6dc;
+}
+
+.slot-logo + .slot-name {
+  margin-top: 0.55rem;
+}
+
+.pieces-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.pieces {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+}
+
+.names-side,
+.logos-side {
+  min-height: 220px;
+}
+
+.piece {
+  min-width: 88px;
+  padding: 0.65rem 0.8rem;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(13, 29, 41, 0.1);
+  cursor: grab;
+  text-align: center;
+}
+
+.piece img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.theme-bins {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.theme-bin {
+  min-height: 180px;
+  padding: 1rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 2px dashed rgba(13, 29, 41, 0.18);
+}
+
+.bin-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 900px) {
+  .pieces-container,
+  .puzzle-columns {
+    grid-template-columns: 1fr;
+  }
+}

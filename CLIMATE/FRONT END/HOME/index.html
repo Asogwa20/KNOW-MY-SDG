@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Action Hub | Home</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="home">
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="../Edited images/goal 13.jpg" alt="Climate Action logo">
+        <span>Climate Action</span>
+      </div>
+      <ul id="navLinks">
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../CLIMATE CONDITION/index.html">Climate Condition</a></li>
+        <li><a href="../home/index.html" class="active">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../SDGs/FRONT END/HOME/index.html">Switch to SDGs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="5">
+      Climate home stays public. Login or sign up to unlock quiz, challenge, puzzle, leaderboard, Ask Bot, updates, and live climate tools.
+    </marquee>
+  </div>
+
+  <main class="home-main">
+    <section class="hero-panel climate-hero">
+      <div>
+        <p class="eyebrow">Public entry point</p>
+        <h1 id="welcomeMessage" class="section-title">Welcome to the Climate Action Hub</h1>
+        <p class="section-copy">
+          Explore climate learning, climate condition data, quizzes, challenges, puzzles, and student action.
+          The home page is public, while the student sections unlock after login.
+        </p>
+        <div class="hero-actions">
+          <a class="climate-button restricted-action" href="../quiz/index.html">Start Quiz</a>
+          <a class="climate-chip restricted-action" href="../challenge/index.html">Open Challenge</a>
+          <a class="climate-chip" href="../login/index.html">Login / Sign Up</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img src="../Edited images/goal 13.jpg" alt="Goal 13 Climate Action">
+      </div>
+    </section>
+
+    <section class="section-panel dashboard-grid">
+      <article class="profile-card">
+        <div class="profile-top">
+          <img id="avatarPreview" class="avatar-preview" src="../Edited images/gem.jpg" alt="Climate avatar">
+          <div>
+            <p class="eyebrow">Profile</p>
+            <h2 id="profileName">Guest mode</h2>
+            <p id="profileHint" class="section-copy">Login to add an avatar and save your climate progress locally on this device.</p>
+          </div>
+        </div>
+        <label for="avatarInput">Add picture or avatar</label>
+        <input id="avatarInput" type="file" accept="image/*">
+      </article>
+
+      <article class="stats-card">
+        <p class="eyebrow">Climate Snapshot</p>
+        <div class="stat-grid compact-grid">
+          <div class="stat-card"><strong id="memberCount">0</strong><span>Climate profiles</span></div>
+          <div class="stat-card"><strong>13</strong><span>Climate action goal</span></div>
+          <div class="stat-card"><strong>4</strong><span>Student game modes</span></div>
+          <div class="stat-card"><strong>1</strong><span>Live climate map</span></div>
+        </div>
+      </article>
+
+      <article class="feature-note">
+        <p class="eyebrow">What’s ready</p>
+        <h2>Climate side cleanup</h2>
+        <ul>
+          <li>Public home with locked student pages.</li>
+          <li>Working local login and unique usernames.</li>
+          <li>Consistent quiz, challenge, puzzle, leaderboard, and Ask Bot flows.</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="section-panel feature-grid">
+      <article class="feature-card">
+        <img src="../Edited images/goal 13.jpg" alt="Climate Action">
+        <h2>Learn climate basics</h2>
+        <p>Use the existing Learn page for staged climate learning while the rest of the hub supports practice and action.</p>
+      </article>
+      <article class="feature-card">
+        <img src="../Edited images/goal 7.jpg" alt="Clean Energy">
+        <h2>Practice and compete</h2>
+        <p>Build confidence with quiz questions, timed climate challenges, and a leaderboard that tracks local scores.</p>
+      </article>
+      <article class="feature-card">
+        <img src="../Edited images/goal 15.jpg" alt="Life on Land">
+        <h2>Track real conditions</h2>
+        <p>Use Climate Condition to explore weather, air quality, UV, and forecast data in one place.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Climate Action Hub | Learn, check conditions, and take action.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

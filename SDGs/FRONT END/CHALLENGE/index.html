@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Challenge</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="challenge">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html" class="active">Challenge</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="setup" class="screen">
+    <p class="eyebrow">Timed mode</p>
+    <h1>SDG Challenge</h1>
+    <p>Choose your level first, then choose how many questions you want.</p>
+
+    <div class="setup-grid">
+      <label>
+        Challenge level
+        <select id="difficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+      </label>
+
+      <label>
+        Number of questions
+        <select id="numQuestions">
+          <option value="5">5 Questions</option>
+          <option value="10">10 Questions</option>
+          <option value="15">15 Questions</option>
+          <option value="20">20 Questions</option>
+        </select>
+      </label>
+    </div>
+
+    <p id="timePreview" class="time-preview"></p>
+    <button id="startBtn" type="button">Start Challenge</button>
+  </section>
+
+  <section id="game" class="screen hidden">
+    <div class="top-bar">
+      <span id="timer">Time</span>
+      <span id="progress"></span>
+    </div>
+    <h2 id="question">Question text</h2>
+    <div id="options"></div>
+    <p id="result"></p>
+  </section>
+
+  <section id="end" class="screen hidden">
+    <h2>Challenge Complete</h2>
+    <p id="finalScore"></p>
+    <div class="result-actions">
+      <button id="playAgain" type="button">Play Again</button>
+      <a class="sdg-chip" href="../leaderboard/index.html">View Leaderboard</a>
+    </div>
+  </section>
+
+  <section class="screen social-panel">
+    <div class="social-card">
+      <p class="eyebrow">Challenge a friend</p>
+      <h2>Send a direct challenge</h2>
+      <form id="friendChallengeForm" class="social-form">
+        <label for="friendUsername">Friend username</label>
+        <input id="friendUsername" type="text" required>
+        <label for="friendDate">Date</label>
+        <input id="friendDate" type="date" required>
+        <label for="friendTime">Time</label>
+        <input id="friendTime" type="time" required>
+        <label for="friendDifficulty">Level</label>
+        <select id="friendDifficulty">
+          <option value="easy">Easy</option>
+          <option value="medium">Medium</option>
+          <option value="hard">Hard</option>
+        </select>
+        <label for="friendQuestions">Questions</label>
+        <select id="friendQuestions">
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+        </select>
+        <button type="submit">Send challenge</button>
+      </form>
+    </div>
+
+    <div class="social-card">
+      <p class="eyebrow">Create a team</p>
+      <h2>Invite 2 to 10 students</h2>
+      <form id="teamForm" class="social-form">
+        <label for="teamName">Unique team name</label>
+        <input id="teamName" type="text" required>
+        <label for="teamMembers">Member usernames</label>
+        <textarea id="teamMembers" rows="5" placeholder="Enter usernames separated by commas" required></textarea>
+        <button type="submit">Create team</button>
+      </form>
+      <p class="helper-text">Each student can be in at most 3 teams.</p>
+    </div>
+  </section>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

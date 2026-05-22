@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Hub | Ask Bot</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="ask-question">
+  <header>
+    <nav class="navbar">
+      <div class="nav-brand">
+        <img src="../Edited images/gem.jpg" alt="SDG Hub logo">
+        <span>SDG Bot</span>
+      </div>
+      <ul id="navLinks">
+        <li><a href="../ASK QUESTION/index.html" class="active">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="ask-layout">
+    <section class="bot-panel">
+      <p class="eyebrow">Personal learning helper</p>
+      <h1>Ask the SDG Bot</h1>
+      <p class="lead">Ask about any of the 17 goals, compare goals, or ask for simple student actions you can take now.</p>
+
+      <div id="userInfo" class="user-info"></div>
+      <div id="chatArea" class="chat-area"></div>
+
+      <div class="input-row">
+        <input id="userQuestion" type="text" placeholder="Ask me about the SDGs...">
+        <div class="controls">
+          <button id="sendBtn" class="primary" type="button">Send</button>
+          <button id="voiceBtn" class="ghost" type="button">Voice</button>
+          <select id="voiceSelect"></select>
+        </div>
+      </div>
+
+      <div class="tips">
+        <button class="quick" type="button" data-q="What is SDG 13?">What is SDG 13?</button>
+        <button class="quick" type="button" data-q="How can students support Goal 4?">How can students support Goal 4?</button>
+        <button class="quick" type="button" data-q="Why are partnerships important for the SDGs?">Why are partnerships important?</button>
+        <button class="quick" type="button" data-q="Compare Goal 6 and Goal 13">Compare Goal 6 and Goal 13</button>
+      </div>
+    </section>
+
+    <aside class="sidebar">
+      <div class="side-card">
+        <h3>Ask better questions</h3>
+        <p>Try asking for definitions, comparisons, or actions students can take at school or at home.</p>
+      </div>
+      <div class="side-card">
+        <h3>Suggested improvement</h3>
+        <p>The bot now works like a study helper instead of a huge static text dump, so it feels easier to use during learning.</p>
+      </div>
+      <button id="openFeedback" class="primary" type="button">Send feedback</button>
+    </aside>
+  </main>
+
+  <div id="feedbackBackdrop" class="backdrop" aria-hidden="true">
+    <div class="modal">
+      <h2>Send Feedback</h2>
+      <input id="fbName" placeholder="Name">
+      <input id="fbCountry" placeholder="Country">
+      <input id="fbState" placeholder="State">
+      <select id="fbSex">
+        <option value="">Select Sex</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <textarea id="fbMessage" placeholder="Your feedback..."></textarea>
+      <div class="modal-actions">
+        <button id="fbCancel" type="button" class="sdg-chip">Cancel</button>
+        <button id="fbSend" type="button">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 SDG Advocacy Platform | Ask questions, compare goals, and get quick study support.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

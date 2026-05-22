@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SDG Hub | Learn</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="learn">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html">Leaderboard</a></li>
+        <li><a href="../learn/index.html" class="active">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../CLIMATE/FRONT END/HOME/index.html">Switch to Climate</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="marquee">
+    <marquee behavior="scroll" direction="left" scrollamount="6">
+      SDG Learn is back in a fuller study format. Read through each stage and spend at least 1 minute 30 seconds before the next stage unlocks.
+    </marquee>
+  </div>
+
+  <main class="learn-main">
+    <section class="section-panel learn-hero">
+      <div>
+        <p class="eyebrow">Full learning path</p>
+        <h1>Learn About the 17 Sustainable Development Goals</h1>
+        <p class="section-copy">
+          This section is designed to feel like a real study guide again. Each stage now contains much richer learning material,
+          and the stage-lock system still stays in place so progress happens in order.
+        </p>
+      </div>
+    </section>
+
+    <section class="stages">
+      <article class="stage-card" data-stage="1">
+        <div class="stage-header">
+          <div>
+            <p class="eyebrow">Stage 1</p>
+            <h2>What the SDGs are and what each goal means</h2>
+          </div>
+          <div class="stage-status">
+            <span id="status1" class="stage-pill">Open</span>
+            <span id="timer1" class="timer-pill">01:30</span>
+          </div>
+        </div>
+        <p class="section-copy">Stage 1 gives the foundation again: what the SDGs are, why they started, and a fuller explanation of all 17 goals.</p>
+        <button type="button" class="stage-toggle" data-target="content1">Open Stage 1</button>
+        <div id="content1" class="stage-content">
+          <div class="stage-shell">
+            <button type="button" class="exit-stage" data-target="content1">Exit Stage</button>
+            <section class="learn-block">
+              <h3>Definition and origin</h3>
+              <p>
+                The Sustainable Development Goals were adopted by the United Nations in 2015 as a shared global call to action.
+                They aim to end poverty, protect the planet, reduce inequality, and build peaceful, fair, and resilient societies by 2030.
+                The SDGs replaced the Millennium Development Goals and expanded the agenda into 17 connected goals that cover social,
+                economic, environmental, and institutional progress.
+              </p>
+            </section>
+            <section class="learn-block">
+              <h3>Why the SDGs matter</h3>
+              <ul class="stage-list">
+                <li>The goals are connected, so progress in health, education, water, energy, and climate often supports each other.</li>
+                <li>They help students understand how local issues connect to global challenges.</li>
+                <li>They turn awareness into action by asking people not only to know problems, but also to respond to them.</li>
+              </ul>
+            </section>
+            <section class="learn-block">
+              <h3>Explore all 17 goals</h3>
+              <div id="stage1Goals" class="accordion-list"></div>
+            </section>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card locked-stage" data-stage="2">
+        <div class="stage-header">
+          <div>
+            <p class="eyebrow">Stage 2</p>
+            <h2>Themes, targets, and how the goals connect</h2>
+          </div>
+          <div class="stage-status">
+            <span id="status2" class="stage-pill">Locked</span>
+            <span id="timer2" class="timer-pill">01:30</span>
+          </div>
+        </div>
+        <p class="section-copy">Stage 2 restores the broader learning view by grouping the goals into themes and showing their targets and connections.</p>
+        <button type="button" class="stage-toggle" data-target="content2" disabled>Open Stage 2</button>
+        <div id="content2" class="stage-content">
+          <div class="stage-shell">
+            <button type="button" class="exit-stage" data-target="content2">Exit Stage</button>
+            <section class="learn-block">
+              <h3>Goal themes</h3>
+              <div id="themeGrid" class="theme-columns"></div>
+            </section>
+            <section class="learn-block">
+              <h3>Goal cards and targets</h3>
+              <div id="goalExplorer" class="goal-explorer"></div>
+            </section>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card locked-stage" data-stage="3">
+        <div class="stage-header">
+          <div>
+            <p class="eyebrow">Stage 3</p>
+            <h2>Why the goals are still urgent</h2>
+          </div>
+          <div class="stage-status">
+            <span id="status3" class="stage-pill">Locked</span>
+            <span id="timer3" class="timer-pill">01:30</span>
+          </div>
+        </div>
+        <p class="section-copy">Stage 3 brings back the deeper study angle by showing causes, barriers, and why each goal remains important.</p>
+        <button type="button" class="stage-toggle" data-target="content3" disabled>Open Stage 3</button>
+        <div id="content3" class="stage-content">
+          <div class="stage-shell">
+            <button type="button" class="exit-stage" data-target="content3">Exit Stage</button>
+            <section class="learn-block">
+              <h3>Common barriers across the SDGs</h3>
+              <table class="learn-table">
+                <thead>
+                  <tr>
+                    <th>Barrier</th>
+                    <th>What it affects</th>
+                    <th>Why it matters</th>
+                  </tr>
+                </thead>
+                <tbody id="barrierTable"></tbody>
+              </table>
+            </section>
+            <section class="learn-block">
+              <h3>Examples of what students can observe in real life</h3>
+              <div id="stage3Examples" class="action-cards"></div>
+            </section>
+          </div>
+        </div>
+      </article>
+
+      <article class="stage-card locked-stage" data-stage="4">
+        <div class="stage-header">
+          <div>
+            <p class="eyebrow">Stage 4</p>
+            <h2>Practical actions for all 17 goals</h2>
+          </div>
+          <div class="stage-status">
+            <span id="status4" class="stage-pill">Locked</span>
+            <span id="timer4" class="timer-pill">01:30</span>
+          </div>
+        </div>
+        <p class="section-copy">Stage 4 brings back the fuller “what can I do?” part of learning. After 1 minute 30 seconds here, quiz and challenge unlock.</p>
+        <button type="button" class="stage-toggle" data-target="content4" disabled>Open Stage 4</button>
+        <div id="content4" class="stage-content">
+          <div class="stage-shell">
+            <button type="button" class="exit-stage" data-target="content4">Exit Stage</button>
+            <section class="learn-block">
+              <h3>Action guide for the 17 goals</h3>
+              <div id="actionBoards" class="action-board-grid"></div>
+            </section>
+            <div class="cta-row">
+              <a id="stage4Quiz" class="btn disabled-link" href="../quiz/index.html" aria-disabled="true">Take a Quiz</a>
+              <a id="stage4Challenge" class="btn disabled-link" href="../challenge/index.html" aria-disabled="true">Try a Challenge</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 SDG Advocacy Platform | Learn Section</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

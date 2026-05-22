@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Climate Leaderboard</title>
+  <link rel="stylesheet" href="../shared.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body data-page="leaderboard">
+  <header>
+    <nav>
+      <ul>
+        <li><a href="../ASK QUESTION/index.html">Ask Bot</a></li>
+        <li><a href="../challenge/index.html">Challenge</a></li>
+        <li><a href="../CLIMATE CONDITION/index.html">Climate Condition</a></li>
+        <li><a href="../home/index.html">Home</a></li>
+        <li><a href="../leaderboard/index.html" class="active">Leaderboard</a></li>
+        <li><a href="../learn/index.html">Learn</a></li>
+        <li><a href="../login/index.html">Login</a></li>
+        <li><a href="../puzzle/index.html">Puzzle</a></li>
+        <li><a href="../quiz/index.html">Quiz</a></li>
+        <li><a href="../update/index.html">Updates</a></li>
+        <li><a href="../../../SDGs/FRONT END/HOME/index.html">Switch to SDGs</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="leaderboard-container">
+    <h1>Climate Leaderboard</h1>
+    <p>Recognizing top climate performers across quiz, challenge, and puzzle activities.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-board="general" type="button">General</button>
+      <button class="tab" data-board="quiz" type="button">Quiz</button>
+      <button class="tab" data-board="challenge" type="button">Challenge</button>
+      <button class="tab" data-board="puzzle" type="button">Puzzle</button>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Avatar</th>
+          <th>First Name</th>
+          <th>Username</th>
+          <th>Country</th>
+          <th>State</th>
+          <th>Class</th>
+          <th>Role</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody id="leaderboardBody"></tbody>
+    </table>
+    <p id="leaderboardEmpty" class="hidden">No climate scores yet. Login and complete an activity to populate the board.</p>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Climate Action Hub | Track climate quiz, challenge, and puzzle progress.</p>
+  </footer>
+
+  <script src="../shared.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

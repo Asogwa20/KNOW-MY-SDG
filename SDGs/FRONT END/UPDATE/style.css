@@ -1,0 +1,46 @@
+.update-contact {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.2rem;
+}
+
+.updates,
+.contact {
+  padding: 1.6rem;
+}
+
+.updates h1,
+.contact h2 {
+  margin-top: 0;
+}
+
+.update-stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.update-card {
+  padding: 1.15rem;
+  border-radius: 20px;
+  background:
+    linear-gradient(160deg, rgba(255, 255, 255, 0.95), rgba(38, 189, 226, 0.08));
+  border: 1px solid rgba(13, 29, 41, 0.08);
+}
+
+.update-card h3,
+.update-card p,
+.update-card small {
+  margin: 0 0 0.35rem;
+}
+
+#formMsg {
+  margin-top: 1rem;
+  color: #2d8b73;
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .update-contact {
+    grid-template-columns: 1fr;
+  }
+}
