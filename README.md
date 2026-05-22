@@ -31,7 +31,24 @@ It provides:
 
 Data is stored in `data/db.json`. That folder is ignored by git.
 
-## Hosting
+## Hosting on Vercel
+
+Vercel needs an external database because serverless functions should not use `data/db.json` for permanent storage.
+
+Use MongoDB Atlas:
+
+1. Create a free MongoDB Atlas cluster.
+2. Create a database user and copy the connection string.
+3. In Vercel, import this GitHub repository.
+4. Add environment variables:
+   - `MONGODB_URI` = your MongoDB Atlas connection string
+   - `APP_SECRET` = a long random secret
+   - `MONGODB_DB` = `know_my_sdg` optional
+5. Deploy.
+
+The Vercel API entry is `api/[...path].js`, and the frontend calls routes like `/api/sdg/auth/signup`.
+
+## Hosting on Render or Railway
 
 Use any Node host such as Render, Railway, Fly.io, or a VPS.
 

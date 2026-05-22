@@ -1,0 +1,13 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/SDGs/FRONT END/HOME/index.html"
+    }
+  ],
+  "functions": {
+    "api/[...path].js": {
+      "maxDuration": 10
+    }
+  }
+}

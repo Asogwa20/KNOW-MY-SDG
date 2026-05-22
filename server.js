@@ -10,9 +10,13 @@ const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
 const DATA_DIR = path.resolve(process.env.DATA_DIR || path.join(ROOT, "data"));
 const DB_FILE = path.join(DATA_DIR, "db.json");
+const MONGODB_URI = process.env.MONGODB_URI || "";
+const MONGODB_DB = process.env.MONGODB_DB || "know_my_sdg";
+const MONGODB_COLLECTION = process.env.MONGODB_COLLECTION || "app_state";
 const TOKEN_SECRET = process.env.APP_SECRET || "change-this-secret-before-production";
 const TOKEN_TTL_SECONDS = 60 * 60 * 24 * 7;
 const MAX_BODY_BYTES = 8 * 1024 * 1024;
+let mongoClientPromise = null;
 
 const DEFAULT_DB = {
   sdg: {
@@ -50,12 +54,16 @@ function clone(value) {
 }
 
 function ensureStore() {
+  if (MONGODB_URI) {
+    return;
+  }
+
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
 
   if (!fs.existsSync(DB_FILE)) {
-    writeDb(clone(DEFAULT_DB));
+    fs.writeFileSync(DB_FILE, JSON.stringify(normalizeDb(clone(DEFAULT_DB)), null, 2));
   }
 }
 
@@ -72,7 +80,35 @@ function normalizeDb(db) {
   return next;
 }
 
-function readDb() {
+async function getMongoCollection() {
+  if (!MONGODB_URI) {
+    return null;
+  }
+
+  if (!mongoClientPromise) {
+    const { MongoClient } = require("mongodb");
+    const client = new MongoClient(MONGODB_URI);
+    mongoClientPromise = client.connect();
+  }
+
+  const client = await mongoClientPromise;
+  return client.db(MONGODB_DB).collection(MONGODB_COLLECTION);
+}
+
+async function readDb() {
+  const collection = await getMongoCollection();
+  if (collection) {
+    const doc = await collection.findOne({ _id: "main" });
+    if (!doc) {
+      const initial = normalizeDb(clone(DEFAULT_DB));
+      await collection.updateOne({ _id: "main" }, { $set: initial }, { upsert: true });
+      return initial;
+    }
+
+    const { _id, ...db } = doc;
+    return normalizeDb(db);
+  }
+
   ensureStore();
   try {
     return normalizeDb(JSON.parse(fs.readFileSync(DB_FILE, "utf8")));
@@ -81,11 +117,17 @@ function readDb() {
   }
 }
 
-function writeDb(db) {
+async function writeDb(db) {
+  const normalized = normalizeDb(db);
+  const collection = await getMongoCollection();
+  if (collection) {
+    await collection.updateOne({ _id: "main" }, { $set: normalized }, { upsert: true });
+    return;
+  }
+
   if (!fs.existsSync(DATA_DIR)) {
     fs.mkdirSync(DATA_DIR, { recursive: true });
   }
-  const normalized = normalizeDb(db);
   const tempFile = `${DB_FILE}.tmp`;
   fs.writeFileSync(tempFile, JSON.stringify(normalized, null, 2));
   fs.renameSync(tempFile, DB_FILE);
@@ -336,7 +378,7 @@ async function handleSignup(req, res, appName, db) {
   });
 
   app.users.push(user);
-  writeDb(db);
+  await writeDb(db);
   sendJson(res, 201, { ok: true, ...createSession(appName, user) });
 }
 
@@ -357,7 +399,7 @@ async function handleLogin(req, res, appName, db) {
     const passwordData = hashPassword(password);
     delete user.password;
     Object.assign(user, passwordData, { updatedAt: new Date().toISOString() });
-    writeDb(db);
+    await writeDb(db);
   }
 
   sendJson(res, 200, { ok: true, ...createSession(appName, user) });
@@ -384,7 +426,7 @@ async function handleResetPassword(req, res, appName, db) {
   const passwordData = hashPassword(password);
   delete app.users[index].password;
   Object.assign(app.users[index], passwordData, { updatedAt: new Date().toISOString() });
-  writeDb(db);
+  await writeDb(db);
   sendJson(res, 200, { ok: true, user: sanitizeUser(app.users[index]) });
 }
 
@@ -406,7 +448,7 @@ async function handleScore(req, res, appName, db) {
   current.user[field] = Number(current.user[field] || 0) + delta;
   recalcGeneralScore(current.user);
   current.user.updatedAt = new Date().toISOString();
-  writeDb(db);
+  await writeDb(db);
   sendJson(res, 200, { ok: true, user: sanitizeUser(current.user) });
 }
 
@@ -420,7 +462,7 @@ async function handleAvatar(req, res, appName, db) {
   const body = await parseBody(req);
   current.user.avatar = String(body.avatar || body.dataUrl || "");
   current.user.updatedAt = new Date().toISOString();
-  writeDb(db);
+  await writeDb(db);
   sendJson(res, 200, { ok: true, user: sanitizeUser(current.user) });
 }
 
@@ -461,7 +503,7 @@ async function handleNotifications(req, res, appName, db, segments) {
       teamName: body.teamName || ""
     };
     app.notifications.unshift(item);
-    writeDb(db);
+    await writeDb(db);
     sendJson(res, 201, { ok: true, notification: item });
     return;
   }
@@ -486,7 +528,7 @@ async function handleNotifications(req, res, appName, db, segments) {
       status: body.status || note.status,
       respondedAt: body.respondedAt || note.respondedAt || ""
     };
-    writeDb(db);
+    await writeDb(db);
     sendJson(res, 200, { ok: true, notification: app.notifications[index] });
     return;
   }
@@ -577,7 +619,7 @@ async function handleTeams(req, res, appName, db, segments) {
       });
     });
 
-    writeDb(db);
+    await writeDb(db);
     sendJson(res, 201, { ok: true, team, teams: app.teams });
     return;
   }
@@ -593,7 +635,7 @@ async function handleTeams(req, res, appName, db, segments) {
     if (!body.accept) {
       note.status = "declined";
       note.respondedAt = new Date().toISOString();
-      writeDb(db);
+      await writeDb(db);
       sendJson(res, 200, { ok: true, message: "Team invitation declined." });
       return;
     }
@@ -615,7 +657,7 @@ async function handleTeams(req, res, appName, db, segments) {
     team.invited = (team.invited || []).filter((member) => userKey(member) !== userKey(current.user.username));
     note.status = "accepted";
     note.respondedAt = new Date().toISOString();
-    writeDb(db);
+    await writeDb(db);
     sendJson(res, 200, { ok: true, message: `You joined team "${team.name}".`, team, teams: app.teams });
     return;
   }
@@ -653,7 +695,7 @@ async function handleLearn(req, res, appName, db, segments) {
         [stageNumber]: secondsSpent
       }
     };
-    writeDb(db);
+    await writeDb(db);
     sendJson(res, 200, { ok: true, progress: app.learn[key] });
     return;
   }
@@ -678,7 +720,7 @@ async function handleFeedback(req, res, db) {
     createdAt: new Date().toISOString()
   };
   db.feedback.unshift(item);
-  writeDb(db);
+  await writeDb(db);
   sendJson(res, 201, { ok: true, feedback: item });
 }
 
@@ -691,7 +733,7 @@ async function handleApi(req, res, parsedUrl) {
   }
 
   const segments = parsedUrl.pathname.split("/").filter(Boolean);
-  const db = readDb();
+  const db = await readDb();
 
   if (segments[1] === "health") {
     sendJson(res, 200, { ok: true, name: "SDG/Climate Learning Hub", time: new Date().toISOString() });
@@ -820,10 +862,15 @@ function serveStatic(req, res, parsedUrl) {
   fs.createReadStream(filePath).pipe(res);
 }
 
+async function handleApiRequest(req, res) {
+  const parsedUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
+  await handleApi(req, res, parsedUrl);
+}
+
 const server = http.createServer((req, res) => {
   const parsedUrl = new URL(req.url || "/", `http://${req.headers.host || "localhost"}`);
   if (parsedUrl.pathname.startsWith("/api/")) {
-    handleApi(req, res, parsedUrl).catch((error) => {
+    handleApiRequest(req, res).catch((error) => {
       sendError(res, error.message === "Request body is too large." ? 413 : 500, error.message || "Server error.");
     });
     return;
@@ -831,7 +878,14 @@ const server = http.createServer((req, res) => {
   serveStatic(req, res, parsedUrl);
 });
 
-server.listen(PORT, () => {
-  ensureStore();
-  console.log(`SDG/Climate Learning Hub running at http://localhost:${PORT}`);
-});
+if (require.main === module) {
+  server.listen(PORT, () => {
+    ensureStore();
+    console.log(`SDG/Climate Learning Hub running at http://localhost:${PORT}`);
+  });
+}
+
+module.exports = {
+  handleApiRequest,
+  server
+};
